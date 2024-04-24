@@ -10,11 +10,11 @@ import { LocalNotifications } from '@capacitor/local-notifications';
 export class HomePage implements OnInit {
 
   constructor(private database: Database) {
-    await LocalNotifications.requestPermissions(); // Solicitar permisos de la app
-
+    
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await LocalNotifications.requestPermissions(); // Solicitar permisos de la app
     const route = ref(this.database, '/tiempo'); // Ruta directa a donde se encuentra el número
 
     onValue(route, (snapshot) => {
